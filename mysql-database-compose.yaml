@@ -1,0 +1,17 @@
+services:
+  gapty-mysql:
+    container_name: 'gapty-db'
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=client-portal'
+      - 'MYSQL_PASSWORD=secret'
+      - 'MYSQL_ROOT_PASSWORD=verysecret'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - gapty-db:/var/lib/mysql
+volumes:
+  gapty-db:
